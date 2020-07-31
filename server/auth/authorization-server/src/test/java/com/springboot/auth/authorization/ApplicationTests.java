@@ -1,6 +1,5 @@
 package com.springboot.auth.authorization;
 
-import com.springboot.auth.authorization.exception.AuthErrorType;
 import org.junit.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
