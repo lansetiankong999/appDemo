@@ -92,15 +92,13 @@ authorization-server为授权应用，启动前请初使化好数据库，[授�
 
 authentication-server为签权应用，若有新增接口，请初使化相关权限数据到resource表中。
 
-gateway-admin可动态调整gateway-web的路由策略，测试前请先配置网关的转发策略，[路由策略配置](https://github.com/zhoutaoo/SpringCloud/tree/master/gateway/gateway-admin#%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)。
+gateway-admin可动态调整gateway-web的路由策略，测试前请先配置网关的转发策略，[路由策略配置](https://github.com/lansetiankong999/appDemo/tree/master/gateway/gateway-admin#%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)。
 
 [示意图](https://www.processon.com/view/link/5cc05ff9e4b059e20a06e3c4)
 
 * 6.前端项目
 
 确确保gateway-admin、gateway-web、organization、authorization-server、authentication-server服务启动，然后启动
-
-[前端项目](https://github.com/zhoutaoo/SpringCloud-Admin)（该项目目前还在开发中）
 
 大家启动如有问题，可以先到这里看看，也可以加入交流群
 
