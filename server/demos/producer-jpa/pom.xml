@@ -21,7 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <swagger.input.host>http://localhost:9001</swagger.input.host>
+        <swagger.input.host>http://47.107.177.14:9001</swagger.input.host>
     </properties>
 
     <dependencies>

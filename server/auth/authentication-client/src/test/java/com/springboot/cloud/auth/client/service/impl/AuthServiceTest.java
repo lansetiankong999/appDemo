@@ -30,7 +30,7 @@ public class AuthServiceTest {
         authService = new AuthService();
         setInstancePrivateField(authService, "signingKey", "123456");
         setInstancePrivateField(authService, "ignoreUrls", "/oauth,/open");
-        MockitoAnnotations.initMocks(this);
+        //MockitoAnnotations.initMocks(this);
     }
 
     private void setInstancePrivateField(Object instance, String fieldName, Object value) throws NoSuchFieldException, IllegalAccessException {

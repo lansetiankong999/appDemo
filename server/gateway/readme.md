@@ -11,8 +11,8 @@ SpringCloud Gateway是基于Spring Framework 5，Project Reactor和Spring Boot 2
 
 | 服务名             |   简介              |  默认地址                |
 |--------------------|---------------------|--------------------------|
-| gateway-admin      | 网关管理应用        |  http://localhost:8445   |
-| gateway-web        | 网关入口应用        |  http://localhost:8443   |
+| gateway-admin      | 网关管理应用        |  http://47.107.177.14:8445   |
+| gateway-web        | 网关入口应用        |  http://47.107.177.14:8443   |
 
 gateway-admin下 `src/main/db` 脚本是动态路由的存储结构，启动项目前先建立好库和表
 

@@ -4,12 +4,12 @@ spring:
       trace:
         enabled: true
   rabbitmq:
-    host: ${RABBIT_MQ_HOST:localhost}
+    host: ${RABBIT_MQ_HOST:47.107.177.14}
     port: ${RABBIT_MQ_PORT:5672}
     username: ${RABBIT_MQ_USERNAME:guest}
     password: ${RABBIT_MQ_PASSWORD:guest}
   redis:
-    host: ${REDIS_HOST:localhost}
+    host: ${REDIS_HOST:47.107.177.14}
     port: ${REDIS_PORT:6379}
     lettuce:
       pool:
@@ -17,7 +17,7 @@ spring:
     #password: ${REDIS_PASSWORD:123456}
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:${DATASOURCE_DBTYPE:mysql}://${DATASOURCE_HOST:localhost}:${DATASOURCE_PORT:3306}/sc_product?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+    url: jdbc:${DATASOURCE_DBTYPE:mysql}://${DATASOURCE_HOST:47.107.177.14}:${DATASOURCE_PORT:3306}/sc_product?characterEncoding=UTF-8&useUnicode=true&useSSL=false
     username: ${DATASOURCE_USERNAME:root}
     password: ${DATASOURCE_PASSWORD:root123}
   zipkin:

@@ -6,13 +6,13 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
+        server-addr: ${REGISTER_HOST:47.107.177.14}:${REGISTER_PORT:8848}
       config:
-        server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
+        server-addr: ${REGISTER_HOST:47.107.177.14}:${REGISTER_PORT:8848}
         file-extension: yml
     sentinel:
       transport:
-        dashboard: ${SENTINEL_DASHBOARD_HOST:localhost}:${SENTINEL_DASHBOARD_PORT:8021}
+        dashboard: ${SENTINEL_DASHBOARD_HOST:47.107.177.14}:${SENTINEL_DASHBOARD_PORT:8021}
     bus:
       trace:
         enabled: true

@@ -21,7 +21,7 @@
 
 docker镜像打包：`mvn docker:build`
 
-应用地址：`http://localhost:8000`
+应用地址：`http://47.107.177.14:8000`
 
 ## 使用指南
 
@@ -71,7 +71,7 @@ password: `password`
 
 ```
 POST /oauth/token?scope=read&grant_type=password HTTP/1.1
-Host: localhost:8000
+Host: 47.107.177.14:8000
 Authorization: Basic dGVzdF9jbGllbnQ6dGVzdF9zZWNyZXQ=
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
@@ -102,7 +102,7 @@ username=zhoutaoo&password=password
 
 ```
 POST /oauth/token?scope=read&grant_type=client_credentials HTTP/1.1
-Host: localhost:8000
+Host: 47.107.177.14:8000
 Authorization: Basic dGVzdF9jbGllbnQ6dGVzdF9zZWNyZXQ=
 Cache-Control: no-cache
 ```
@@ -157,7 +157,7 @@ redirect_uri： 该参数要与商户申请client_id时登记的url(oauth_client
 
 ```
 POST /oauth/token?grant_type=authorization_code&code=A32sYi&redirect_uri=http://baidu.com HTTP/1.1
-Host: localhost:8000
+Host: 47.107.177.14:8000
 Authorization: Basic dGVzdF9jbGllbnQ6dGVzdF9zZWNyZXQ=
 Cache-Control: no-cache
 ```
@@ -213,7 +213,7 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 
 ```
 POST /oauth/token HTTP/1.1
-Host: localhost:8000
+Host: 47.107.177.14:8000
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
 

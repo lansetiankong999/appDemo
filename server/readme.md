@@ -75,14 +75,14 @@ docker方式脚本初使化：进入docker-compose目录，执行命令 `docker-
 
 | 服务分类  | 服务名                     |  依赖基础组件             |   简介      |  应用地址                | 文档                    |
 |----------|---------------------------|-------------------------|-------------|-------------------------|-------------------------|
-|  center  | bus-server                |                         |  消息中心    |  http://localhost:8071  | [消息中心文档](./center/bus)         |
-|  sysadmin| organization              | mysql、redis            |  用户组织应用 |  http://localhost:8010  | 待完善      |
-|  auth    | authorization-server      | mysql、organization     |  授权服务    |  http://localhost:8000  | [权限服务简介](./auth) 、[授权server文档](./auth/authorization-server)     |
-|  auth    | authentication-server     | mysql、organization     |  认证服务    |  http://localhost:8001  | [认证server文档](./auth/authentication-server)    |
+|  center  | bus-server                |                         |  消息中心    |  http://47.107.177.14:8071  | [消息中心文档](./center/bus)         |
+|  sysadmin| organization              | mysql、redis            |  用户组织应用 |  http://47.107.177.14:8010  | 待完善      |
+|  auth    | authorization-server      | mysql、organization     |  授权服务    |  http://47.107.177.14:8000  | [权限服务简介](./auth) 、[授权server文档](./auth/authorization-server)     |
+|  auth    | authentication-server     | mysql、organization     |  认证服务    |  http://47.107.177.14:8001  | [认证server文档](./auth/authentication-server)    |
 |  auth    | authentication-client     | 无                      |  认证客户端  |  jar包引入               |      |
-|  gateway | gateway-web               | redis                   |  WEB网关    |  http://localhost:8443  | [WEB网关简介](./gateway)  [WEB网关文档](./gateway/gateway-web)       |
-|  gateway | gateway-admin             | mysql、redis            |  网关管理    |  http://localhost:8445  | [网关管理后台文档](./gateway/gateway-admin)   |
-|  monitor | admin                     |                         |  总体监控    |  http://localhost:8022  |      |
+|  gateway | gateway-web               | redis                   |  WEB网关    |  http://47.107.177.14:8443  | [WEB网关简介](./gateway)  [WEB网关文档](./gateway/gateway-web)       |
+|  gateway | gateway-admin             | mysql、redis            |  网关管理    |  http://47.107.177.14:8445  | [网关管理后台文档](./gateway/gateway-admin)   |
+|  monitor | admin                     |                         |  总体监控    |  http://47.107.177.14:8022  |      |
 
 * 4.案例示意图
 

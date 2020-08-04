@@ -15,14 +15,14 @@ public interface IResourceService {
     /**
      * 动态新增更新权限
      *
-     * @param resource
+     * @param resource resource
      */
     void saveResource(Resource resource);
 
     /**
      * 动态删除权限
      *
-     * @param resource
+     * @param resource resource
      */
     void removeResource(Resource resource);
 
@@ -34,16 +34,16 @@ public interface IResourceService {
     /**
      * 根据url和method查询到对应的权限信息
      *
-     * @param authRequest
-     * @return
+     * @param authRequest authRequest
+     * @return ConfigAttribute
      */
     ConfigAttribute findConfigAttributesByUrl(HttpServletRequest authRequest);
 
     /**
      * 根据用户名查询 该用户所拥有的角色对应的资源信息
      *
-     * @param username
-     * @return
+     * @param username username
+     * @return Resource
      */
     Set<Resource> queryByUsername(String username);
 }

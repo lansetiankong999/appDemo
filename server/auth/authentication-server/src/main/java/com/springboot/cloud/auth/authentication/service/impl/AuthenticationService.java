@@ -46,9 +46,9 @@ public class AuthenticationService implements IAuthenticationService {
     /**
      * url对应资源与用户拥有资源进行匹配
      *
-     * @param urlConfigAttribute
-     * @param userResources
-     * @return
+     * @param urlConfigAttribute urlConfigAttribute
+     * @param userResources userResources
+     * @return boolean
      */
     public boolean isMatch(ConfigAttribute urlConfigAttribute, Set<Resource> userResources) {
         return userResources.stream().anyMatch(resource -> resource.getCode().equals(urlConfigAttribute.getAttribute()));

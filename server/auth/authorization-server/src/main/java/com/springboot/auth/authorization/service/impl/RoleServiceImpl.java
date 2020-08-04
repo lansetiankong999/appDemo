@@ -4,13 +4,18 @@ import com.springboot.auth.authorization.entity.Role;
 import com.springboot.auth.authorization.provider.OrganizationProvider;
 import com.springboot.auth.authorization.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+/**
+ * @author xxx
+ */
 @Service
-public class RoleService implements IRoleService {
+public class RoleServiceImpl implements IRoleService {
 
+    @Qualifier("organization")
     @Autowired
     private OrganizationProvider organizationProvider;
 

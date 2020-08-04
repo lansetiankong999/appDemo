@@ -46,7 +46,7 @@
 
 ### 控制台查看
 
-浏览器中打开`http://localhost:8848`，可以看到注册中心的一些信息，如目前注册的应用，应用上下线的情况。
+浏览器中打开`http://47.107.177.14:8848`，可以看到注册中心的一些信息，如目前注册的应用，应用上下线的情况。
 
 ![postman](register-nacos.png)
 
@@ -100,5 +100,5 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${REGISTER_HOST:localhost}:${REGISTER_PORT:8848}
+        server-addr: ${REGISTER_HOST:47.107.177.14}:${REGISTER_PORT:8848}
 ```

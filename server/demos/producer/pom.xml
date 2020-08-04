@@ -80,7 +80,7 @@
                 <artifactId>swagger2markup-maven-plugin</artifactId>
                 <version>1.3.4</version>
                 <configuration>
-                    <swaggerInput>http://localhost:8001/v2/api-docs</swaggerInput>
+                    <swaggerInput>http://47.107.177.14:8001/v2/api-docs</swaggerInput>
                     <outputDir>src/main/docs/asciidoc/generated</outputDir>
                     <config>
                         <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>

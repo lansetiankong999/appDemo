@@ -18,7 +18,7 @@ const devopsRouter = {
       component: Layout,
       children: [
         {
-          path: 'http://localhost:8848/nacos',
+          path: 'http://47.107.177.14:8848/nacos',
           meta: {
             title: '注册中心',
             icon: 'link'
@@ -32,7 +32,7 @@ const devopsRouter = {
       component: Layout,
       children: [
         {
-          path: 'http://localhost:8848/nacos',
+          path: 'http://47.107.177.14:8848/nacos',
           meta: {
             title: '配置中心',
             icon: 'link'

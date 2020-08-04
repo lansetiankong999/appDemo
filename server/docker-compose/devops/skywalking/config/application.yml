@@ -20,7 +20,7 @@ cluster:
    # library the oap-libs folder with your ZooKeeper 3.4.x library.
 #  zookeeper:
 #    nameSpace: ${SW_NAMESPACE:""}
-#    hostPort: ${SW_CLUSTER_ZK_HOST_PORT:localhost:2181}
+#    hostPort: ${SW_CLUSTER_ZK_HOST_PORT:47.107.177.14:2181}
 #    #Retry Policy
 #    baseSleepTimeMs: ${SW_CLUSTER_ZK_SLEEP_TIME:1000} # initial amount of time to wait between retries
 #    maxRetries: ${SW_CLUSTER_ZK_MAX_RETRIES:3} # max number of times to retry
@@ -32,7 +32,7 @@ cluster:
 #  consul:
 #    serviceName: ${SW_SERVICE_NAME:"SkyWalking_OAP_Cluster"}
 #     Consul cluster nodes, example: 10.0.0.1:8500,10.0.0.2:8500,10.0.0.3:8500
-#    hostPort: ${SW_CLUSTER_CONSUL_HOST_PORT:localhost:8500}
+#    hostPort: ${SW_CLUSTER_CONSUL_HOST_PORT:47.107.177.14:8500}
 core:
   default:
     # Mixed: Receive agent data, Level 1 aggregate, Level 2 aggregate

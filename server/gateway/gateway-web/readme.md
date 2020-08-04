@@ -44,4 +44,4 @@ docker镜像打包：`mvn docker:build`
 
 网关默认聚合了所有已在网关中配置过路由的应用的swagger文档
 
-默认地址：http://localhost:8443/swagger-ui.html
+默认地址：http://47.107.177.14:8443/swagger-ui.html

@@ -12,6 +12,9 @@ import lombok.Getter;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 
+/**
+ * @author Jump
+ */
 @ApiModel(description = "rest请求的返回模型，所有rest正常都返回该类的对象")
 @Getter
 public class Result<T> {
@@ -21,10 +24,13 @@ public class Result<T> {
 
     @ApiModelProperty(value = "处理结果code", required = true)
     private String code;
+
     @ApiModelProperty(value = "处理结果描述信息")
     private String mesg;
+
     @ApiModelProperty(value = "请求结果生成时间戳")
-    private Instant time;
+    private final Instant time;
+
     @ApiModelProperty(value = "处理结果数据信息")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
@@ -34,7 +40,7 @@ public class Result<T> {
     }
 
     /**
-     * @param errorType
+     * @param errorType errorType
      */
     public Result(ErrorType errorType) {
         this.code = errorType.getCode();
@@ -43,8 +49,8 @@ public class Result<T> {
     }
 
     /**
-     * @param errorType
-     * @param data
+     * @param errorType errorType
+     * @param data      data
      */
     public Result(ErrorType errorType, T data) {
         this(errorType);
@@ -54,9 +60,9 @@ public class Result<T> {
     /**
      * 内部使用，用于构造成功的结果
      *
-     * @param code
-     * @param mesg
-     * @param data
+     * @param code code
+     * @param mesg mesg
+     * @param data data
      */
     private Result(String code, String mesg, T data) {
         this.code = code;
@@ -68,7 +74,7 @@ public class Result<T> {
     /**
      * 快速创建成功结果并返回结果数据
      *
-     * @param data
+     * @param data data
      * @return Result
      */
     public static Result success(Object data) {
@@ -96,7 +102,7 @@ public class Result<T> {
     /**
      * 系统异常类没有返回数据
      *
-     * @param baseException
+     * @param baseException baseException
      * @return Result
      */
     public static Result fail(BaseException baseException) {
@@ -106,7 +112,7 @@ public class Result<T> {
     /**
      * 系统异常类并返回结果数据
      *
-     * @param data
+     * @param data data
      * @return Result
      */
     public static Result fail(BaseException baseException, Object data) {
@@ -116,8 +122,8 @@ public class Result<T> {
     /**
      * 系统异常类并返回结果数据
      *
-     * @param errorType
-     * @param data
+     * @param errorType errorType
+     * @param data      data
      * @return Result
      */
     public static Result fail(ErrorType errorType, Object data) {
@@ -127,7 +133,7 @@ public class Result<T> {
     /**
      * 系统异常类并返回结果数据
      *
-     * @param errorType
+     * @param errorType errorType
      * @return Result
      */
     public static Result fail(ErrorType errorType) {
@@ -137,7 +143,7 @@ public class Result<T> {
     /**
      * 系统异常类并返回结果数据
      *
-     * @param data
+     * @param data data
      * @return Result
      */
     public static Result fail(Object data) {

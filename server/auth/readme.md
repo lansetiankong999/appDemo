@@ -11,8 +11,8 @@
 
 | 服务名                     |   简介         |  默认地址                |
 |---------------------------|----------------|-------------------------|
-| authorization-server      | 授权服务        |  http://localhost:8000  |
-| authentication-server     | 签权服务        |  http://localhost:8001  |
+| authorization-server      | 授权服务        |  http://47.107.177.14:8000  |
+| authentication-server     | 签权服务        |  http://47.107.177.14:8001  |
 | authentication-client     | 签权客户端      |  jar包，简化调用签权服务   |
 | db                        | 授权与签权DB脚本 |  ddl与dml               |
 

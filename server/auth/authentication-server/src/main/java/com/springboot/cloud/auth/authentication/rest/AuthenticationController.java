@@ -4,11 +4,11 @@ import com.springboot.cloud.auth.authentication.service.IAuthenticationService;
 import com.springboot.cloud.common.core.entity.vo.Result;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class AuthenticationController {
 
-    @Autowired
+    @Resource
     IAuthenticationService authenticationService;
 
     @ApiOperation(value = "权限验证", notes = "根据用户token，访问的url和method判断用户是否有权限访问")
