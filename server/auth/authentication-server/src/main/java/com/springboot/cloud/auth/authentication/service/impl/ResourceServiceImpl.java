@@ -8,7 +8,6 @@ import com.springboot.cloud.auth.authentication.service.NewMvcRequestMatcher;
 import com.springboot.cloud.common.core.entity.vo.Result;
 import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
@@ -22,34 +21,37 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class ResourceService implements IResourceService {
+public class ResourceServiceImpl implements IResourceService {
 
-    @Autowired
+    @javax.annotation.Resource
     private HandlerMappingIntrospector mvcHandlerMappingIntrospector;
 
-    @Autowired
+    @javax.annotation.Resource
     private ResourceProvider resourceProvider;
 
     /**
      * 系统中所有权限集合
      */
-    private static final Map<RequestMatcher, ConfigAttribute> resourceConfigAttributes = new HashMap<>();
+    private static final Map<RequestMatcher, ConfigAttribute> RESOURCE_CONFIG_ATTRIBUTES = new HashMap<>();
 
     @Override
     public synchronized void saveResource(Resource resource) {
-        resourceConfigAttributes.put(
+        RESOURCE_CONFIG_ATTRIBUTES.put(
                 this.newMvcRequestMatcher(resource.getUrl(), resource.getMethod()),
                 new SecurityConfig(resource.getCode())
         );
-        log.info("resourceConfigAttributes size:{}", resourceConfigAttributes.size());
+        log.info("resourceConfigAttributes size:{}", RESOURCE_CONFIG_ATTRIBUTES.size());
     }
 
     @Override
     public synchronized void removeResource(Resource resource) {
-        resourceConfigAttributes.remove(this.newMvcRequestMatcher(resource.getUrl(), resource.getMethod()));
-        log.info("resourceConfigAttributes size:{}", resourceConfigAttributes.size());
+        RESOURCE_CONFIG_ATTRIBUTES.remove(this.newMvcRequestMatcher(resource.getUrl(), resource.getMethod()));
+        log.info("resourceConfigAttributes size:{}", RESOURCE_CONFIG_ATTRIBUTES.size());
     }
 
     @Override
@@ -64,15 +66,15 @@ public class ResourceService implements IResourceService {
                         resource -> this.newMvcRequestMatcher(resource.getUrl(), resource.getMethod()),
                         resource -> new SecurityConfig(resource.getCode())
                 ));
-        resourceConfigAttributes.putAll(tempResourceConfigAttributes);
-        log.debug("init resourceConfigAttributes:{}", resourceConfigAttributes);
+        RESOURCE_CONFIG_ATTRIBUTES.putAll(tempResourceConfigAttributes);
+        log.debug("init resourceConfigAttributes:{}", RESOURCE_CONFIG_ATTRIBUTES);
     }
 
     @Override
     public ConfigAttribute findConfigAttributesByUrl(HttpServletRequest authRequest) {
-        return resourceConfigAttributes.keySet().stream()
+        return RESOURCE_CONFIG_ATTRIBUTES.keySet().stream()
                 .filter(requestMatcher -> requestMatcher.matches(authRequest))
-                .map(requestMatcher -> resourceConfigAttributes.get(requestMatcher))
+                .map(RESOURCE_CONFIG_ATTRIBUTES::get)
                 .peek(urlConfigAttribute -> log.debug("url在资源池中配置：{}", urlConfigAttribute.getAttribute()))
                 .findFirst()
                 .orElse(new SecurityConfig("NONEXISTENT_URL"));
@@ -87,9 +89,9 @@ public class ResourceService implements IResourceService {
     /**
      * 创建RequestMatcher
      *
-     * @param url
-     * @param method
-     * @return
+     * @param url    url
+     * @param method method
+     * @return MvcRequestMatcher
      */
     private MvcRequestMatcher newMvcRequestMatcher(String url, String method) {
         return new NewMvcRequestMatcher(mvcHandlerMappingIntrospector, url, method);

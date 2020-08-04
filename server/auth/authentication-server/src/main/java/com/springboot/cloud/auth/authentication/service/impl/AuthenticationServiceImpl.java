@@ -12,9 +12,12 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class AuthenticationService implements IAuthenticationService {
+public class AuthenticationServiceImpl implements IAuthenticationService {
 
     /**
      * 未在资源库中的URL默认标识
@@ -22,7 +25,7 @@ public class AuthenticationService implements IAuthenticationService {
     public static final String NONEXISTENT_URL = "NONEXISTENT_URL";
 
     @Autowired
-    private ResourceService resourceService;
+    private ResourceServiceImpl resourceService;
 
     /**
      * @param authRequest 访问的url,method

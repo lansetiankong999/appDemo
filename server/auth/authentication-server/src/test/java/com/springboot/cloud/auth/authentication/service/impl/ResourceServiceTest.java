@@ -37,7 +37,7 @@ public class ResourceServiceTest {
     };*/
 
     @InjectMocks
-    private ResourceService resourceService;
+    private ResourceServiceImpl resourceService;
 
     @Mock
     private ResourceProvider resourceProvider;

@@ -1,6 +1,6 @@
 package com.springboot.cloud.auth.authentication.events;
 
-import com.springboot.cloud.auth.authentication.service.impl.ResourceService;
+import com.springboot.cloud.auth.authentication.service.impl.ResourceServiceImpl;
 import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class BusReceiver {
 
     @javax.annotation.Resource
-    private ResourceService resourceService;
+    private ResourceServiceImpl resourceService;
 
     public void handleMessage(Resource resource) {
         log.info("Received Message:<{}>", resource);
