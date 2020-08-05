@@ -10,6 +10,8 @@ import java.util.Map;
 
 /**
  * 自定义token携带内容
+ *
+ * @author Jump
  */
 public class CustomTokenEnhancer implements TokenEnhancer {
 

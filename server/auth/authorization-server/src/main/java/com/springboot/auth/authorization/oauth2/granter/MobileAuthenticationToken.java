@@ -5,6 +5,8 @@ import org.springframework.security.core.Authentication;
 
 /**
  * 手机验证码登陆Token认证类
+ *
+ * @author Jump
  */
 public class MobileAuthenticationToken extends UsernamePasswordAuthenticationToken {
 

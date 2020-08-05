@@ -5,23 +5,27 @@ import com.springboot.auth.authorization.entity.User;
 import com.springboot.auth.authorization.service.IRoleService;
 import com.springboot.auth.authorization.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Jump
+ */
 @Slf4j
 @Service("userDetailsService")
-public class CustomUserDetailsService implements UserDetailsService {
+public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
+    @Resource
     private IUserService userService;
-    @Autowired
+
+    @Resource
     private IRoleService roleService;
 
     @Override
@@ -43,8 +47,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     /**
      * 获得登录者所有角色的权限集合.
      *
-     * @param user
-     * @return
+     * @param user user
+     * @return GrantedAuthority
      */
     protected Set<GrantedAuthority> obtainGrantedAuthorities(User user) {
         Set<Role> roles = roleService.queryUserRolesByUserId(user.getId());

@@ -1,5 +1,8 @@
 package com.springboot.cloud.gateway.service;
 
+/**
+ * @author Jump
+ */
 public interface IPermissionService {
     /**
      * @param authentication

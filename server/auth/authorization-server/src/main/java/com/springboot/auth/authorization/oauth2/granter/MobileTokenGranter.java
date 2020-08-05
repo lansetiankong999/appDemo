@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author joe_chen
+ * @author Jump
  * 短信验证码登陆与用户名密码登陆相似,密码为动态
  * 故继承ResourceOwnerPasswordTokenGranter
  */
@@ -19,7 +19,7 @@ public class MobileTokenGranter extends ResourceOwnerPasswordTokenGranter {
 
     private static final String GRANT_TYPE = "mobile";
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
     public MobileTokenGranter(AuthenticationManager authenticationManager,
                               AuthorizationServerTokenServices tokenServices, ClientDetailsService clientDetailsService,
@@ -41,13 +41,11 @@ public class MobileTokenGranter extends ResourceOwnerPasswordTokenGranter {
         ((AbstractAuthenticationToken) userAuth).setDetails(parameters);
         try {
             userAuth = this.authenticationManager.authenticate(mobileAuthenticationToken);
-        } catch (AccountStatusException ase) {
+        } catch (AccountStatusException | BadCredentialsException ase) {
             //covers expired, locked, disabled cases (mentioned in section 5.2, draft 31)
             throw new InvalidGrantException(ase.getMessage());
-        } catch (BadCredentialsException e) {
-            // If the username/password are wrong the spec says we should send 400/invalid grant
-            throw new InvalidGrantException(e.getMessage());
-        }
+        } // If the username/password are wrong the spec says we should send 400/invalid grant
+
         if (userAuth == null || !userAuth.isAuthenticated()) {
             throw new InvalidGrantException("Could not authenticate user: " + username);
         }

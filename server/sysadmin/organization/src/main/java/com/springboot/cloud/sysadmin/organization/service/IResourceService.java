@@ -7,6 +7,9 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 public interface IResourceService {
     /**
      * 获取资源

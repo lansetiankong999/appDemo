@@ -18,8 +18,6 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class ApplicationTests {
 
     @Test

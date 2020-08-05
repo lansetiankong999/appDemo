@@ -7,6 +7,9 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Role;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 public interface IRoleService {
     /**
      * 获取角色

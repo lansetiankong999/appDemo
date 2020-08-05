@@ -2,6 +2,9 @@ package com.springboot.cloud.sysadmin.organization.service;
 
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 public interface IUserRoleService {
 
     /**

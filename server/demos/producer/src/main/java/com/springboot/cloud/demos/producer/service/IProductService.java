@@ -5,6 +5,9 @@ import com.springboot.cloud.demos.producer.entity.po.Product;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 public interface IProductService {
     /**
      * 获取用户

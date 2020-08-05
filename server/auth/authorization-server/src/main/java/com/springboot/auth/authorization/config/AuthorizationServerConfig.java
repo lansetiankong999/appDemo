@@ -4,8 +4,6 @@ import com.google.common.collect.Lists;
 import com.springboot.auth.authorization.oauth2.enhancer.CustomTokenEnhancer;
 import com.springboot.auth.authorization.exception.CustomWebResponseExceptionTranslator;
 import com.springboot.auth.authorization.oauth2.granter.MobileTokenGranter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,24 +27,25 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    @Autowired
-    @Qualifier("authenticationManagerBean")
+    @Resource
     private AuthenticationManager authenticationManager;
 
-    @Qualifier("dataSource")
-    @Autowired
+    @Resource
     DataSource dataSource;
 
-    @Autowired
-    @Qualifier("userDetailsService")
+    @Resource
     UserDetailsService userDetailsService;
 
     /**
@@ -140,7 +139,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     /**
      * jwt token的生成配置
      *
-     * @return
+     * @return JwtAccessTokenConverter
      */
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
@@ -152,9 +151,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     /**
      * 配置自定义的granter,手机号验证码登陆
      *
-     * @param endpoints
-     * @return
-     * @auth joe_chen
+     * @param endpoints endpoints
+     * @return TokenGranter
      */
     public TokenGranter tokenGranter(final AuthorizationServerEndpointsConfigurer endpoints) {
         List<TokenGranter> granters = Lists.newArrayList(endpoints.getTokenGranter());

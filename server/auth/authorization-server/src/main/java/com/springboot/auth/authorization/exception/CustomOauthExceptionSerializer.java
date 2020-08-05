@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import java.io.IOException;
 
+/**
+ * @author Jump
+ */
 public class CustomOauthExceptionSerializer extends StdSerializer<CustomOauthException> {
     public CustomOauthExceptionSerializer() {
         super(CustomOauthException.class);

@@ -5,8 +5,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Jump
+ */
 @Data
-@EqualsAndHashCode(callSuper = false )
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 public class Role extends BasePo {
     private String code;

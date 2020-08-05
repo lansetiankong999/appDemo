@@ -1,7 +1,5 @@
 package com.springboot.auth.authorization.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,17 +15,20 @@ import com.springboot.auth.authorization.oauth2.granter.MobileAuthenticationProv
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.Resource;
+
+/**
+ * @author Jump
+ */
 @Slf4j
 @Configuration
 @EnableWebSecurity
 public class WebServerSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    @Qualifier("userDetailsService")
+    @Resource
     private UserDetailsService userDetailsService;
 
-    @Autowired
-    @Qualifier("mobileUserDetailsService")
+    @Resource
     private UserDetailsService mobileUserDetailsService;
 
     @Override
@@ -43,8 +44,8 @@ public class WebServerSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 注入自定义的userDetailsService实现，获取用户信息，设置密码加密方式
      *
-     * @param authenticationManagerBuilder
-     * @throws Exception
+     * @param authenticationManagerBuilder authenticationManagerBuilder
+     * @throws Exception e
      */
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {

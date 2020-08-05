@@ -5,5 +5,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
+
+/**
+ * @author Jump
+ */
 public interface ProductMapper extends PagingAndSortingRepository<Product, String> {
 }

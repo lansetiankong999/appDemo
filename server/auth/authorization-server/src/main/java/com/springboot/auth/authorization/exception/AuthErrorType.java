@@ -3,9 +3,16 @@ package com.springboot.auth.authorization.exception;
 import com.springboot.cloud.common.core.exception.ErrorType;
 import lombok.Getter;
 
+/**
+ * @author Jump
+ */
+
 @Getter
 public enum AuthErrorType implements ErrorType {
 
+    /**
+     * 定义token请求枚举
+     */
     INVALID_REQUEST("040001", "无效请求"),
     INVALID_CLIENT("040002", "无效client_id"),
     INVALID_GRANT("040003", "无效授权"),
@@ -24,11 +31,11 @@ public enum AuthErrorType implements ErrorType {
     /**
      * 错误类型码
      */
-    private String code;
+    private final String code;
     /**
      * 错误类型描述信息
      */
-    private String mesg;
+    private final String mesg;
 
     AuthErrorType(String code, String mesg) {
         this.code = code;

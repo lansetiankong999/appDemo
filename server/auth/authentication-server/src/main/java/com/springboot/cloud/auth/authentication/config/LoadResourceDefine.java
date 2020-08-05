@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * Created by zhoutaoo on 2018/5/25.
+ * @author Jump
  */
 @Component
 class LoadResourceDefine {

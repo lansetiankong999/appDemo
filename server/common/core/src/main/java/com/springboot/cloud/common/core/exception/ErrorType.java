@@ -1,5 +1,8 @@
 package com.springboot.cloud.common.core.exception;
 
+/**
+ * @author Jump
+ */
 public interface ErrorType {
     /**
      * 返回code

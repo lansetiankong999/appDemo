@@ -8,12 +8,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 @FeignClient(name = "organization", fallback = ResourceProviderFallback.class)
 public interface ResourceProvider {
 
+    /**
+     * 获取所有资源
+     *
+     * @return Set<Resource>
+     */
     @GetMapping(value = "/resource/all")
     Result<Set<Resource>> resources();
 
+    /**
+     * 获取该用户所有资源
+     *
+     * @param username username
+     * @return Set<Resource>
+     */
     @GetMapping(value = "/resource/user/{username}")
     Result<Set<Resource>> resources(@PathVariable("username") String username);
 }

@@ -5,6 +5,9 @@ import com.springboot.cloud.sysadmin.organization.entity.po.RoleResource;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 public interface IRoleResourceService {
 
     /**

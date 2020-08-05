@@ -7,5 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository
+
+/**
+ * @author Jump
+ */
 public interface GatewayRouteMapper extends BaseMapper<GatewayRoute> {
 }

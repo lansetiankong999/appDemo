@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+/**
+ * @author Jump
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableCircuitBreaker

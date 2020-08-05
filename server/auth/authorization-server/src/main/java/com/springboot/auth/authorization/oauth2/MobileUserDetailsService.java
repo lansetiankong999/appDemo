@@ -4,20 +4,24 @@ import com.springboot.auth.authorization.entity.User;
 import com.springboot.auth.authorization.provider.SmsCodeProvider;
 import com.springboot.auth.authorization.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * 手机验证码登陆, 用户相关获取
+ *
+ * @author Jump
  */
 @Slf4j
 @Service("mobileUserDetailsService")
-public class MobileUserDetailsService extends CustomUserDetailsService {
+public class MobileUserDetailsService extends CustomUserDetailsServiceImpl {
 
-    @Autowired
+    @Resource
     private IUserService userService;
-    @Autowired
+
+    @Resource
     private SmsCodeProvider smsCodeProvider;
 
     @Override

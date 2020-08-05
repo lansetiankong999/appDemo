@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 @Component
 public class OrganizationProviderFallback implements OrganizationProvider {
 

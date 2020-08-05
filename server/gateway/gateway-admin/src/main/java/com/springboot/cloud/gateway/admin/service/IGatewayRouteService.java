@@ -6,6 +6,9 @@ import com.springboot.cloud.gateway.admin.entity.po.GatewayRoute;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 public interface IGatewayRouteService {
     /**
      * 获取网关路由

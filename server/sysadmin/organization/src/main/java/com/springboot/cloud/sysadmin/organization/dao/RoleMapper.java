@@ -7,5 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
+
+/**
+ * @author Jump
+ */
 public interface RoleMapper extends BaseMapper<Role> {
 }

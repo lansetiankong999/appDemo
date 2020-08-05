@@ -5,6 +5,9 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Position;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 public interface IPositionService {
     /**
      * 获取职位

@@ -4,6 +4,9 @@ import org.springframework.cloud.gateway.route.RouteDefinition;
 
 import java.util.Collection;
 
+/**
+ * @author Jump
+ */
 public interface IRouteService {
     Collection<RouteDefinition> getRouteDefinitions();
 

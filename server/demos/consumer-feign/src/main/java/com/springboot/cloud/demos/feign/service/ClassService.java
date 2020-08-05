@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
+/**
+ * @author Jump
+ */
 @FeignClient(name = "producer", fallback = ClassServiceFallback.class)
 public interface ClassService {
 
