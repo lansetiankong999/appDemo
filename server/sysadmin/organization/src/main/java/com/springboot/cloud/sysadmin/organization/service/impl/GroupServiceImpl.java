@@ -14,9 +14,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class GroupService extends ServiceImpl<GroupMapper, Group> implements IGroupService {
+public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements IGroupService {
 
     @Override
     public boolean add(Group group) {

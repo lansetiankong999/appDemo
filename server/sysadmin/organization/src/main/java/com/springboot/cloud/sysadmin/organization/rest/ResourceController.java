@@ -8,18 +8,20 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
 import com.springboot.cloud.sysadmin.organization.service.IResourceService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/resource")
 @Api("resource")
 @Slf4j
 public class ResourceController {
 
-    @Autowired
+    @javax.annotation.Resource
     private IResourceService resourceService;
 
     @ApiOperation(value = "新增资源", notes = "新增一个资源")

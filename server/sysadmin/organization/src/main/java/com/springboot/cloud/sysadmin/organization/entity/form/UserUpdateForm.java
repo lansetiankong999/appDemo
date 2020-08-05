@@ -5,10 +5,15 @@ import com.springboot.cloud.sysadmin.organization.entity.po.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
 public class UserUpdateForm extends BaseForm<User> {

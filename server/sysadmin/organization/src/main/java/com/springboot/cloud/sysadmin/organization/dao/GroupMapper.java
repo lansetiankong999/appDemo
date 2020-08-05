@@ -5,11 +5,10 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Group;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
-@Mapper
-
 /**
  * @author Jump
  */
+@Repository
+@Mapper
 public interface GroupMapper extends BaseMapper<Group> {
 }

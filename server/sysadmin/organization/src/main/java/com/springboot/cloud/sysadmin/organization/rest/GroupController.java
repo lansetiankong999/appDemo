@@ -8,18 +8,21 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Group;
 import com.springboot.cloud.sysadmin.organization.service.IGroupService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/group")
 @Api("group")
 @Slf4j
 public class GroupController {
 
-    @Autowired
+    @Resource
     private IGroupService groupService;
 
     @ApiOperation(value = "新增用户组", notes = "新增一个用户组")

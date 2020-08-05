@@ -5,11 +5,16 @@ import com.springboot.cloud.sysadmin.organization.entity.param.RoleQueryParam;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Past;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
 public class RoleQueryForm extends BaseQueryForm<RoleQueryParam> {

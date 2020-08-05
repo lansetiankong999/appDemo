@@ -15,9 +15,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class PositionService extends ServiceImpl<PositionMapper, Position> implements IPositionService {
+public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> implements IPositionService {
 
     @Override
     public boolean add(Position position) {

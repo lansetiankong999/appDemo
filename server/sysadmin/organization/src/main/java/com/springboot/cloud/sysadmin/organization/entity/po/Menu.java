@@ -1,11 +1,12 @@
 package com.springboot.cloud.sysadmin.organization.entity.po;
 
 import com.springboot.cloud.common.web.entity.po.BasePo;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
 @NoArgsConstructor

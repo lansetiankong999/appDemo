@@ -8,18 +8,21 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Menu;
 import com.springboot.cloud.sysadmin.organization.service.IMenuService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/menu")
 @Api("menu")
 @Slf4j
 public class MenuController {
 
-    @Autowired
+    @Resource
     private IMenuService menuService;
 
     @ApiOperation(value = "新增菜单", notes = "新增一个菜单")

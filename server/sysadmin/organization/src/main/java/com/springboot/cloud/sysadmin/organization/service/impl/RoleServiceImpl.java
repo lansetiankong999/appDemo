@@ -16,21 +16,24 @@ import com.springboot.cloud.sysadmin.organization.service.IRoleService;
 import com.springboot.cloud.sysadmin.organization.service.IUserRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class RoleService extends ServiceImpl<RoleMapper, Role> implements IRoleService {
+public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IRoleService {
 
-    @Autowired
+    @Resource
     private IUserRoleService userRoleService;
 
-    @Autowired
+    @Resource
     private IRoleResourceService roleResourceService;
 
     @Override

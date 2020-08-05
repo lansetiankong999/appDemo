@@ -9,18 +9,21 @@ import com.springboot.cloud.sysadmin.organization.entity.po.User;
 import com.springboot.cloud.sysadmin.organization.service.IUserService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/user")
 @Api("user")
 @Slf4j
 public class UserController {
 
-    @Autowired
+    @Resource
     private IUserService userService;
 
     @ApiOperation(value = "新增用户", notes = "新增一个用户")

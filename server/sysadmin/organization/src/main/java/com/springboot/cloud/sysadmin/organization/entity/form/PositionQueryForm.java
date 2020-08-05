@@ -5,12 +5,17 @@ import com.springboot.cloud.sysadmin.organization.entity.param.ResourceQueryPara
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
 public class PositionQueryForm extends BaseQueryForm<ResourceQueryParam> {

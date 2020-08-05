@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * @author Jump
+ */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandlerAdvice extends DefaultGlobalExceptionHandlerAdvice {

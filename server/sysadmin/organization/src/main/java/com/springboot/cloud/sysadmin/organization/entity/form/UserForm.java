@@ -5,11 +5,16 @@ import com.springboot.cloud.sysadmin.organization.entity.po.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
 public class UserForm extends BaseForm<User> {

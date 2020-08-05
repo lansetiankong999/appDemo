@@ -7,18 +7,21 @@ import com.springboot.cloud.sysadmin.organization.entity.po.Position;
 import com.springboot.cloud.sysadmin.organization.service.IPositionService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/position")
 @Api("position")
 @Slf4j
 public class PositionController {
 
-    @Autowired
+    @Resource
     private IPositionService positionService;
 
     @ApiOperation(value = "新增职位", notes = "新增一个职位")

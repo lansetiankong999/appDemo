@@ -16,39 +16,39 @@ import com.springboot.cloud.sysadmin.organization.service.IUserRoleService;
 import com.springboot.cloud.sysadmin.organization.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Objects;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class UserService extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
-    @Autowired
+    @Resource
     private IUserRoleService userRoleService;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean add(User user) {
-        if (StringUtils.isNotBlank(user.getPassword()))
-            user.setPassword(passwordEncoder().encode(user.getPassword()));
+        if (StringUtils.isNotBlank(user.getPassword())) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
         boolean inserts = this.save(user);
         userRoleService.saveBatch(user.getId(), user.getRoleIds());
         return inserts;
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @CacheInvalidate(name = "user::", key = "#id")
     public boolean delete(String id) {
         this.removeById(id);
@@ -56,11 +56,12 @@ public class UserService extends ServiceImpl<UserMapper, User> implements IUserS
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @CacheInvalidate(name = "user::", key = "#user.id")
     public boolean update(User user) {
-        if (StringUtils.isNotBlank(user.getPassword()))
-            user.setPassword(passwordEncoder().encode(user.getPassword()));
+        if (StringUtils.isNotBlank(user.getPassword())) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
         boolean isSuccess = this.updateById(user);
         userRoleService.saveBatch(user.getId(), user.getRoleIds());
         return isSuccess;

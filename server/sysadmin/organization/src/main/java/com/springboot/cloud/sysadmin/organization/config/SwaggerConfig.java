@@ -10,9 +10,13 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * @author Jump
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -27,7 +31,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("系统管理API")
                 .description("系统管理，组织人员管理、角色权限管理、岗位管理")
-                .termsOfServiceUrl("https://github.com/zhoutaoo/SpringCloud")
+                .termsOfServiceUrl("https://github.com/lansetiankong999/appDemo")
                 .version("2.0")
                 .build();
     }

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.springboot.cloud.common.web.entity.po.BasePo;
 import com.springboot.cloud.sysadmin.organization.config.BusConfig;
 import com.springboot.cloud.sysadmin.organization.dao.ResourceMapper;
 import com.springboot.cloud.sysadmin.organization.entity.param.ResourceQueryParam;
@@ -20,27 +21,29 @@ import com.springboot.cloud.sysadmin.organization.service.IRoleService;
 import com.springboot.cloud.sysadmin.organization.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class ResourceService extends ServiceImpl<ResourceMapper, Resource> implements IResourceService {
+public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> implements IResourceService {
 
-    @Autowired
+    @javax.annotation.Resource
     private IRoleResourceService roleResourceService;
 
-    @Autowired
+    @javax.annotation.Resource
     private IRoleService roleService;
 
-    @Autowired
+    @javax.annotation.Resource
     private IUserService userService;
 
-    @Autowired
+    @javax.annotation.Resource
     private EventSender eventSender;
 
     @Override
@@ -89,11 +92,11 @@ public class ResourceService extends ServiceImpl<ResourceMapper, Resource> imple
         User user = userService.getByUniqueId(username);
         List<Role> roles = roleService.query(user.getId());
         //提取用户所拥有角色id列表
-        Set<String> roleIds = roles.stream().map(role -> role.getId()).collect(Collectors.toSet());
+        Set<String> roleIds = roles.stream().map(BasePo::getId).collect(Collectors.toSet());
         //根据角色列表查询到角色的资源的关联关系
         List<RoleResource> roleResources = roleResourceService.queryByRoleIds(roleIds);
         //根据资源列表查询出所有资源对象
-        Set<String> resourceIds = roleResources.stream().map(roleResource -> roleResource.getResourceId()).collect(Collectors.toSet());
+        Set<String> resourceIds = roleResources.stream().map(RoleResource::getResourceId).collect(Collectors.toSet());
         //根据resourceId列表查询出resource对象
         return (List<Resource>) this.listByIds(resourceIds);
     }

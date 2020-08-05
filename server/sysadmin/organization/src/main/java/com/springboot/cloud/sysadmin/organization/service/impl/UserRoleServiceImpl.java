@@ -14,22 +14,26 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class UserRoleService extends ServiceImpl<UserRoleMapper, UserRole> implements IUserRoleService {
+public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements IUserRoleService {
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean saveBatch(String userId, Set<String> roleIds) {
-        if (CollectionUtils.isEmpty(roleIds))
+        if (CollectionUtils.isEmpty(roleIds)) {
             return false;
+        }
         removeByUserId(userId);
         Set<UserRole> userRoles = roleIds.stream().map(roleId -> new UserRole(userId, roleId)).collect(Collectors.toSet());
         return saveBatch(userRoles);
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public boolean removeByUserId(String userId) {
         QueryWrapper<UserRole> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(UserRole::getUserId, userId);

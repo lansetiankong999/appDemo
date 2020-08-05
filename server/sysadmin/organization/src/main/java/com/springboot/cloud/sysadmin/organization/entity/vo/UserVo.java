@@ -3,12 +3,17 @@ package com.springboot.cloud.sysadmin.organization.entity.vo;
 import com.springboot.cloud.common.web.entity.vo.BaseVo;
 import com.springboot.cloud.sysadmin.organization.entity.po.User;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 public class UserVo extends BaseVo {
