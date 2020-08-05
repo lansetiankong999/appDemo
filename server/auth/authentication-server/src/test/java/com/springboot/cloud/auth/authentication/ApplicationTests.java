@@ -7,15 +7,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ApplicationTests {
 
     @Test
@@ -24,7 +28,7 @@ public class ApplicationTests {
         SimpleGrantedAuthority admin = new SimpleGrantedAuthority("ADMIN");
         SimpleGrantedAuthority user = new SimpleGrantedAuthority("USER");
         authorities = Lists.newArrayList(admin, user);
-        authorities.stream().map(authority -> authority.getAuthority()).collect(Collectors.toList());
+        authorities.stream().map(SimpleGrantedAuthority::getAuthority).collect(Collectors.toList());
     }
 
     @Test

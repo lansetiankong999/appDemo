@@ -6,21 +6,25 @@ import com.springboot.cloud.common.core.entity.vo.Result;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.stream.Stream;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class AuthService implements IAuthService {
+public class AuthServiceImpl implements IAuthService {
+
     /**
      * Authorization认证开头是"bearer "
      */
     private static final String BEARER = "Bearer ";
 
-    @Autowired
+    @Resource
     private AuthProvider authProvider;
 
     /**
@@ -34,7 +38,7 @@ public class AuthService implements IAuthService {
      * 默认/oauth开头是不需要的
      */
     @Value("${gate.ignore.authentication.startWith}")
-    private String ignoreUrls = "/oauth";
+    private final String ignoreUrls = "/oauth";
 
     @Override
     public Result authenticate(String authentication, String url, String method) {

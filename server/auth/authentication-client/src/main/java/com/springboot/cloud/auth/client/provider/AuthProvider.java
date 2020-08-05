@@ -8,15 +8,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * @author Jump
+ */
 @Component
 @FeignClient(name = "authentication-server", fallback = AuthProvider.AuthProviderFallback.class)
 public interface AuthProvider {
+
     /**
      * 调用签权服务，判断用户是否有权限
      *
-     * @param authentication
-     * @param url
-     * @param method
+     * @param authentication authentication
+     * @param url            url
+     * @param method         method
      * @return <pre>
      * Result:
      * {
@@ -34,9 +38,9 @@ public interface AuthProvider {
         /**
          * 降级统一返回无权限
          *
-         * @param authentication
-         * @param url
-         * @param method
+         * @param authentication authentication
+         * @param url            url
+         * @param method         method
          * @return <pre>
          * Result:
          * {

@@ -4,6 +4,9 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author Jump
+ */
 @Service
 public interface IAuthenticationService {
     /**

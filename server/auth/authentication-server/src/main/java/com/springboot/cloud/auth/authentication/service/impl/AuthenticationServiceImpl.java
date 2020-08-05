@@ -3,7 +3,6 @@ package com.springboot.cloud.auth.authentication.service.impl;
 import com.springboot.cloud.sysadmin.organization.entity.po.Resource;
 import com.springboot.cloud.auth.authentication.service.IAuthenticationService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,7 +23,7 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
      */
     public static final String NONEXISTENT_URL = "NONEXISTENT_URL";
 
-    @Autowired
+    @javax.annotation.Resource
     private ResourceServiceImpl resourceService;
 
     /**
@@ -38,8 +37,9 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         //获取此url，method访问对应的权限资源信息
         ConfigAttribute urlConfigAttribute = resourceService.findConfigAttributesByUrl(authRequest);
-        if (NONEXISTENT_URL.equals(urlConfigAttribute.getAttribute()))
+        if (NONEXISTENT_URL.equals(urlConfigAttribute.getAttribute())) {
             log.debug("url未在资源池中找到，拒绝访问");
+        }
         //获取此访问用户所有角色拥有的权限资源
         Set<Resource> userResources = findResourcesByUsername(authentication.getName());
         //用户拥有权限资源 与 url要求的资源进行对比
@@ -50,7 +50,7 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
      * url对应资源与用户拥有资源进行匹配
      *
      * @param urlConfigAttribute urlConfigAttribute
-     * @param userResources userResources
+     * @param userResources      userResources
      * @return boolean
      */
     public boolean isMatch(ConfigAttribute urlConfigAttribute, Set<Resource> userResources) {
@@ -60,8 +60,8 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
     /**
      * 根据用户所被授予的角色，查询到用户所拥有的资源
      *
-     * @param username
-     * @return
+     * @param username username
+     * @return Set<Resource>
      */
     private Set<Resource> findResourcesByUsername(String username) {
         //用户被授予的角色资源

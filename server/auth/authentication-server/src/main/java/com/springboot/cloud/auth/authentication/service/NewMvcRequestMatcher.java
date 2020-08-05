@@ -6,11 +6,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
+/**
+ * @author Jump
+ */
 @Getter
 public class NewMvcRequestMatcher extends MvcRequestMatcher {
 
-    private String pattern;
-    private String method;
+    private final String pattern;
+    private final String method;
 
     public NewMvcRequestMatcher(HandlerMappingIntrospector introspector, String pattern, String method) {
         super(introspector, pattern);

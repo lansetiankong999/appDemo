@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @author Jump
+ */
 @Service
 public interface IResourceService {
 
