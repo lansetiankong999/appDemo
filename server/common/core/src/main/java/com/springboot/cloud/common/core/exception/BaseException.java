@@ -2,6 +2,9 @@ package com.springboot.cloud.common.core.exception;
 
 import lombok.Getter;
 
+/**
+ * @author Jump
+ */
 @Getter
 public class BaseException extends RuntimeException {
     /**

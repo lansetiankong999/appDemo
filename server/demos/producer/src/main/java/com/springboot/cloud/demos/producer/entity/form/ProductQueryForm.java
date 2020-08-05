@@ -5,15 +5,21 @@ import com.springboot.cloud.demos.producer.entity.param.ProductQueryParam;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
 public class ProductQueryForm extends BaseQueryForm<ProductQueryParam> {
+
     @NotBlank(message = "名称不能为空")
     @ApiModelProperty(value = "产品名称", required = true)
     private String name;

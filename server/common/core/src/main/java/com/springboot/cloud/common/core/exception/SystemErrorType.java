@@ -2,9 +2,16 @@ package com.springboot.cloud.common.core.exception;
 
 import lombok.Getter;
 
+/**
+ * @author Jump
+ */
+
 @Getter
 public enum SystemErrorType implements ErrorType {
 
+    /**
+     * 系统异常
+     */
     SYSTEM_ERROR("-1", "系统异常"),
     SYSTEM_BUSY("000001", "系统繁忙,请稍候再试"),
 
@@ -21,11 +28,11 @@ public enum SystemErrorType implements ErrorType {
     /**
      * 错误类型码
      */
-    private String code;
+    private final String code;
     /**
      * 错误类型描述信息
      */
-    private String mesg;
+    private final String mesg;
 
     SystemErrorType(String code, String mesg) {
         this.code = code;

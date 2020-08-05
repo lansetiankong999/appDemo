@@ -9,7 +9,7 @@ import org.springframework.security.access.SecurityConfig;
 import java.util.Set;
 
 /**
- * Created by zhoutaoo on 2018/5/26.
+ * @author Jump
  */
 public class AuthenticationServiceTest {
 

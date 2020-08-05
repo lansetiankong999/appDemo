@@ -10,12 +10,15 @@ import org.apache.ibatis.reflection.MetaObject;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
 @Slf4j
 public class PoMetaObjectHandler implements MetaObjectHandler {
     /**
      * 获取当前交易的用户，为空返回默认system
      *
-     * @return
+     * @return String
      */
     private String getCurrentUsername() {
         return StringUtils.defaultIfBlank(UserContextHolder.getInstance().getUsername(), BasePo.DEFAULT_USERNAME);

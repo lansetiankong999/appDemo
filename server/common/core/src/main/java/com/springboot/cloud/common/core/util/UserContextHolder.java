@@ -7,10 +7,12 @@ import java.util.Optional;
 
 /**
  * 用户上下文
+ *
+ * @author Jump
  */
 public class UserContextHolder {
 
-    private ThreadLocal<Map<String, String>> threadLocal;
+    private final ThreadLocal<Map<String, String>> threadLocal;
 
     private UserContextHolder() {
         this.threadLocal = new ThreadLocal<>();
@@ -19,10 +21,10 @@ public class UserContextHolder {
     /**
      * 创建实例
      *
-     * @return
+     * @return UserContextHolder
      */
     public static UserContextHolder getInstance() {
-        return SingletonHolder.sInstance;
+        return SingletonHolder.S_INSTANCE;
     }
 
     /**
@@ -30,13 +32,13 @@ public class UserContextHolder {
      * 单例初使化
      */
     private static class SingletonHolder {
-        private static final UserContextHolder sInstance = new UserContextHolder();
+        private static final UserContextHolder S_INSTANCE = new UserContextHolder();
     }
 
     /**
      * 用户上下文中放入信息
      *
-     * @param map
+     * @param map map
      */
     public void setContext(Map<String, String> map) {
         threadLocal.set(map);
@@ -45,7 +47,7 @@ public class UserContextHolder {
     /**
      * 获取上下文中的信息
      *
-     * @return
+     * @return Map
      */
     public Map<String, String> getContext() {
         return threadLocal.get();
@@ -54,7 +56,7 @@ public class UserContextHolder {
     /**
      * 获取上下文中的用户名
      *
-     * @return
+     * @return String
      */
     public String getUsername() {
         return Optional.ofNullable(threadLocal.get()).orElse(Maps.newHashMap()).get("user_name");

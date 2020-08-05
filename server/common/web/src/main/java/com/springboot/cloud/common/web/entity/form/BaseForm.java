@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
+/**
+ * @author Jump
+ */
 @ApiModel
 @Slf4j
 @Data
@@ -18,8 +21,8 @@ public class BaseForm<T extends BasePo> {
     /**
      * From转化为Po，进行后续业务处理
      *
-     * @param clazz
-     * @return
+     * @param clazz clazz
+     * @return T
      */
     public T toPo(Class<T> clazz) {
         T t = BeanUtils.instantiateClass(clazz);
@@ -30,9 +33,9 @@ public class BaseForm<T extends BasePo> {
     /**
      * From转化为Po，进行后续业务处理
      *
-     * @param id
-     * @param clazz
-     * @return
+     * @param id    id
+     * @param clazz clazz
+     * @return T
      */
     public T toPo(String id, Class<T> clazz) {
         T t = BeanUtils.instantiateClass(clazz);

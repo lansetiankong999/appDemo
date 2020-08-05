@@ -16,6 +16,9 @@ import org.springframework.data.redis.serializer.RedisSerializationContext;
 
 import java.time.Duration;
 
+/**
+ * @author Jump
+ */
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
 
@@ -27,7 +30,6 @@ public class RedisConfig extends CachingConfigurerSupport {
         //全局redis缓存过期时间
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofDays(1))
-//                .serializeKeysWith()
                 .serializeValuesWith(valueSerializationPair);
 
         return new RedisCacheManager(RedisCacheWriter.nonLockingRedisCacheWriter(factory), redisCacheConfiguration);

@@ -4,17 +4,18 @@ package com.springboot.cloud.common.core.exception;
  * @author Jump
  */
 public interface ErrorType {
+
     /**
      * 返回code
      *
-     * @return
+     * @return String
      */
     String getCode();
 
     /**
      * 返回mesg
      *
-     * @return
+     * @return String
      */
     String getMesg();
 }

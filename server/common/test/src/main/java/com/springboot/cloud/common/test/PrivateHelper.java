@@ -5,6 +5,9 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * @author Jump
+ */
 public class PrivateHelper {
 
     private PrivateHelper() {
@@ -13,10 +16,10 @@ public class PrivateHelper {
     /**
      * 创建实例
      *
-     * @return
+     * @return PrivateHelper
      */
     public static PrivateHelper getInstance() {
-        return SingletPrivateHelper.sInstance;
+        return SingletPrivateHelper.S_INSTANCE;
     }
 
     /**
@@ -24,7 +27,7 @@ public class PrivateHelper {
      * 单例初使化
      */
     private static class SingletPrivateHelper {
-        private static final PrivateHelper sInstance = new PrivateHelper();
+        private static final PrivateHelper S_INSTANCE = new PrivateHelper();
     }
 
     /**
@@ -34,6 +37,7 @@ public class PrivateHelper {
      */
     public void setPrivateField(Object instance, String fieldName, Object value) {
         Field signingKeyField = ReflectionUtils.findField(instance.getClass(), fieldName);
+        assert signingKeyField != null;
         ReflectionUtils.makeAccessible(signingKeyField);
         ReflectionUtils.setField(signingKeyField, instance, value);
 
@@ -45,7 +49,7 @@ public class PrivateHelper {
      * @param instance       实例对象
      * @param methodName     方法名
      * @param parameterTypes 方法参数类型
-     * @return
+     * @return Method
      */
     public Method findMethod(Object instance, String methodName, Class<?>... parameterTypes) {
         return ReflectionUtils.findMethod(instance.getClass(), methodName, parameterTypes);
@@ -56,7 +60,7 @@ public class PrivateHelper {
      *
      * @param instance   实例对象
      * @param methodName 方法名
-     * @return
+     * @return Method
      */
     public Method findMethod(Object instance, String methodName) {
         return ReflectionUtils.findMethod(instance.getClass(), methodName);
@@ -67,7 +71,7 @@ public class PrivateHelper {
      *
      * @param instance 实例对象
      * @param method   方法对象
-     * @param args
+     * @param args     Object
      */
     public Object invokePrivateMethod(Object instance, Method method, Object... args) {
         ReflectionUtils.makeAccessible(method);

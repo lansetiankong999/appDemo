@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartException;
 
+import java.util.Objects;
+
+/**
+ * @author Jump
+ */
 @Slf4j
 public class DefaultGlobalExceptionHandlerAdvice {
 
@@ -30,7 +35,7 @@ public class DefaultGlobalExceptionHandlerAdvice {
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     public Result serviceException(MethodArgumentNotValidException ex) {
         log.error("service exception:{}", ex.getMessage());
-        return Result.fail(SystemErrorType.ARGUMENT_NOT_VALID, ex.getBindingResult().getFieldError().getDefaultMessage());
+        return Result.fail(SystemErrorType.ARGUMENT_NOT_VALID, Objects.requireNonNull(ex.getBindingResult().getFieldError()).getDefaultMessage());
     }
 
     @ExceptionHandler(value = {DuplicateKeyException.class})

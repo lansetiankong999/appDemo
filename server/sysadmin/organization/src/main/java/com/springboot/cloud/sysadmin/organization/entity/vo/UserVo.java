@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-public class UserVo extends BaseVo<User> {
+public class UserVo extends BaseVo {
 
     public UserVo(User user) {
         BeanUtils.copyProperties(user, this);
