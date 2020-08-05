@@ -5,9 +5,11 @@ import com.springboot.cloud.demos.producer.entity.po.Product;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
 public class ProductForm extends BaseForm<Product> {

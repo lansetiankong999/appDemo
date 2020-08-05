@@ -20,7 +20,7 @@
         <dependency>
             <groupId>com.springboot.cloud</groupId>
             <artifactId>web</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <!-- Spring Cloud -->
         <dependency>

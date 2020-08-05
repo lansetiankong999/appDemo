@@ -36,7 +36,9 @@ public class UserInterceptor implements HandlerInterceptor {
         //从网关获取并校验,通过校验就可信任x-client-token-user中的信息
         checkToken(request.getHeader(X_CLIENT_TOKEN));
         String userInfoString = StringUtils.defaultIfBlank(request.getHeader(X_CLIENT_TOKEN_USER), "{}");
-        UserContextHolder.getInstance().setContext(new ObjectMapper().readValue(userInfoString, Map.class));
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map map = objectMapper.readValue(userInfoString, Map.class);
+        UserContextHolder.getInstance().setContext(map);
         return true;
     }
 
