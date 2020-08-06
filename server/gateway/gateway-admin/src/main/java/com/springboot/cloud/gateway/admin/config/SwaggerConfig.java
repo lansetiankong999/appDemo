@@ -10,6 +10,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * @author Jump
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -27,7 +30,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("网关管理api")
                 .description("网关管理")
-                .termsOfServiceUrl("https://github.com/zhoutaoo/SpringCloud")
+                .termsOfServiceUrl("https://github.com/lansetiankong999/appDemo")
                 .version("2.0")
                 .build();
     }

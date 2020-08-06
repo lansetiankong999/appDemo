@@ -137,7 +137,7 @@ services:
 
 ### spring-cloud集成
 
-请参考：https://github.com/zhoutaoo/SpringCloud例子
+请参考：https://github.com/lansetiankong999/appDemo例子
 
 应用集成开发好后，请求应用的接口
 

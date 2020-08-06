@@ -16,28 +16,31 @@ import com.springboot.cloud.gateway.admin.events.EventSender;
 import com.springboot.cloud.gateway.admin.service.IGatewayRouteService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, GatewayRoute> implements IGatewayRouteService {
+public class GatewayRouteServiceImpl extends ServiceImpl<GatewayRouteMapper, GatewayRoute> implements IGatewayRouteService {
 
     private static final String GATEWAY_ROUTES = "gateway_routes::";
 
     @CreateCache(name = GATEWAY_ROUTES, cacheType = CacheType.REMOTE)
     private Cache<String, RouteDefinition> gatewayRouteCache;
 
-    @Autowired
+    @Resource
     private EventSender eventSender;
 
     @Override
@@ -72,7 +75,7 @@ public class GatewayRouteService extends ServiceImpl<GatewayRouteMapper, Gateway
     /**
      * 将数据库中json对象转换为网关需要的RouteDefinition对象
      *
-     * @param gatewayRoute
+     * @param gatewayRoute gatewayRoute
      * @return RouteDefinition
      */
     private RouteDefinition gatewayRouteToRouteDefinition(GatewayRoute gatewayRoute) {

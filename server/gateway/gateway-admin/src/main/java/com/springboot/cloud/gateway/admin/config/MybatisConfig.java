@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * 初使化Mybatis审计字段自动赋值的interceptor
+ * @author Jump
  */
 @EnableTransactionManagement
 @Configuration

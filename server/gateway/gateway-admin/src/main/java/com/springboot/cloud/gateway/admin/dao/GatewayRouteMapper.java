@@ -5,11 +5,10 @@ import com.springboot.cloud.gateway.admin.entity.po.GatewayRoute;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Mapper
-@Repository
-
 /**
  * @author Jump
  */
+@Mapper
+@Repository
 public interface GatewayRouteMapper extends BaseMapper<GatewayRoute> {
 }

@@ -10,40 +10,44 @@ import java.util.List;
  * @author Jump
  */
 public interface IGatewayRouteService {
+
     /**
      * 获取网关路由
      *
-     * @param id
-     * @return
+     * @param id id
+     * @return GatewayRoute
      */
     GatewayRoute get(String id);
 
     /**
      * 新增网关路由
      *
-     * @param gatewayRoute
-     * @return
+     * @param gatewayRoute gatewayRoute
+     * @return boolean
      */
     boolean add(GatewayRoute gatewayRoute);
 
     /**
      * 查询网关路由
      *
-     * @return
+     * @return GatewayRouteVo
+     * @param gatewayRouteQueryParam gatewayRouteQueryParam
      */
     List<GatewayRouteVo> query(GatewayRouteQueryParam gatewayRouteQueryParam);
 
     /**
      * 更新网关路由信息
      *
-     * @param gatewayRoute
+     * @param gatewayRoute gatewayRoute
+     * @return boolean
      */
     boolean update(GatewayRoute gatewayRoute);
 
     /**
      * 根据id删除网关路由
      *
-     * @param id
+     * @param id id
+     * @return boolean
      */
     boolean delete(String id);
 

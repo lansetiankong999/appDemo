@@ -18,6 +18,9 @@ import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 @EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data

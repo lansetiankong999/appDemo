@@ -3,6 +3,9 @@ package com.springboot.cloud.gateway.admin.entity.po;
 import com.springboot.cloud.common.web.entity.po.BasePo;
 import lombok.*;
 
+/**
+ * @author Jump
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Builder

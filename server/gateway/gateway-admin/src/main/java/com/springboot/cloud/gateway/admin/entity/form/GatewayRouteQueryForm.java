@@ -11,6 +11,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.Past;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
 @EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data

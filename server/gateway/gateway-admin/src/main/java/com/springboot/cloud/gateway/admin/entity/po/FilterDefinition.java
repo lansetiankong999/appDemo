@@ -5,6 +5,9 @@ import lombok.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * @author Jump
+ */
 @EqualsAndHashCode
 @Data
 @Builder

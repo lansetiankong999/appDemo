@@ -112,7 +112,7 @@ export const asyncRoutes = [
     component: Layout,
     children: [
       {
-        path: 'https://github.com/zhoutaoo/springcloud.git',
+        path: 'https://github.com/lansetiankong999/appDemo.git',
         meta: { title: 'Github地址', icon: 'link' }
       }
     ]
