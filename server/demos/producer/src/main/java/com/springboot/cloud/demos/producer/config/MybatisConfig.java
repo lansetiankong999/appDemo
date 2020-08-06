@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 初使化Mybatis审计字段自动赋值的interceptor
+ *
+ * @author Jump
  */
 @Configuration
 public class MybatisConfig {

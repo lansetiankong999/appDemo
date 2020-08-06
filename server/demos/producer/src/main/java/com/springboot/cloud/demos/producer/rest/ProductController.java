@@ -11,15 +11,19 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/product")
 @Api("product")
 @Slf4j
 public class ProductController {
 
-    @Autowired
+    @Resource
     private IProductService productService;
 
     @ApiOperation(value = "新增产品", notes = "新增一个产品")

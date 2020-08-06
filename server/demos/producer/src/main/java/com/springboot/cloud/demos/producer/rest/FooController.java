@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.apache.commons.lang.RandomStringUtils.randomNumeric;
 
+/**
+ * @author Jump
+ */
 @RestController
 public class FooController {
 

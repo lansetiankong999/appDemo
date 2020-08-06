@@ -5,6 +5,9 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Jump
+ */
 @Component
 @Slf4j
 public class BusReceiver {

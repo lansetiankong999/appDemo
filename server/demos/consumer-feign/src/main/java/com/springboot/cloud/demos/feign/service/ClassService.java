@@ -12,12 +12,24 @@ import java.util.Map;
 /**
  * @author Jump
  */
-@FeignClient(name = "producer", fallback = ClassServiceFallback.class)
+@FeignClient(name = "producer", fallback = ClassServiceFallbackImpl.class)
 public interface ClassService {
 
+    /**
+     * Result
+     *
+     * @param name name
+     * @return Result
+     */
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     Result users(@RequestParam("name") String name);
 
+    /**
+     * Result
+     *
+     * @param map map
+     * @return Result
+     */
     @RequestMapping(value = "/hello/", method = RequestMethod.POST)
     Result users(@RequestBody Map map);
 }

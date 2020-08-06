@@ -2,7 +2,6 @@ package com.springboot.cloud.demos.producer.events;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -11,11 +10,16 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
+/**
+ * @author Jump
+ */
 @Component
 public class RedisSender {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
+    @Resource
     private StringRedisTemplate stringRedisTemplate;
 
     @Bean

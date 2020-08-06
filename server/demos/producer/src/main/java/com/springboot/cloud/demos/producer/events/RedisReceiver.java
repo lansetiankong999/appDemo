@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Jump
+ */
 @Component
 public class RedisReceiver {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());

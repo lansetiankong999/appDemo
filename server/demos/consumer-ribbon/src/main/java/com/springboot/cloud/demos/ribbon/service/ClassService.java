@@ -3,16 +3,19 @@ package com.springboot.cloud.demos.ribbon.service;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.springboot.cloud.common.core.entity.vo.Result;
 import com.springboot.cloud.common.core.exception.SystemErrorType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
+/**
+ * @author Jump
+ */
 @Service
 public class ClassService {
 
-    @Autowired
+    @Resource
     RestTemplate restTemplate;
 
     @SentinelResource(fallback = "usersFallback")

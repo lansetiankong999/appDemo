@@ -2,15 +2,18 @@ package com.springboot.cloud.demos.feign.rest;
 
 import com.springboot.cloud.common.core.entity.vo.Result;
 import com.springboot.cloud.demos.feign.service.ClassService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
+/**
+ * @author Jump
+ */
 @RestController
 public class ClassController {
 
-    @Autowired
+    @Resource
     private ClassService classService;
 
     @GetMapping("/classes")

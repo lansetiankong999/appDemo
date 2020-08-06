@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
 @Data
 @MappedSuperclass
 public class JpaBasePo implements Serializable {

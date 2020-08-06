@@ -14,10 +14,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
 @RefreshScope
-public class ProductService extends ServiceImpl<ProductMapper, Product> implements IProductService {
+public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> implements IProductService {
 
     @Value("${producer.product:123}")
     private String value;

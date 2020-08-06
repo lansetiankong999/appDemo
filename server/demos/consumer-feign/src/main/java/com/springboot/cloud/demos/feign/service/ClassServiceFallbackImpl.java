@@ -6,8 +6,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+/**
+ * @author Jump
+ */
 @Component
-public class ClassServiceFallback implements ClassService {
+public class ClassServiceFallbackImpl implements ClassService {
     @Override
     public Result users(String name) {
         return Result.fail(SystemErrorType.SYSTEM_BUSY);

@@ -5,11 +5,10 @@ import com.springboot.cloud.demos.producer.entity.po.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository
-@Mapper
-
 /**
  * @author Jump
  */
+@Repository
+@Mapper
 public interface ProductMapper extends BaseMapper<Product> {
 }

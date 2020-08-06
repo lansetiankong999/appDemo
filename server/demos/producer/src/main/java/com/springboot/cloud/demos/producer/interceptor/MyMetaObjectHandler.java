@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
+/**
+ * @author Jump
+ */
 @Slf4j
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
@@ -22,7 +25,6 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {
-        //避免使用metaObject.setValue()
         String username = getUsername();
         Date now = Date.from(ZonedDateTime.now().toInstant());
         log.debug("start insert fill username:{}", username);

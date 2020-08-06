@@ -5,6 +5,9 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author Jump
+ */
 @Component
 @RabbitListener(queues = "mq")
 @Slf4j

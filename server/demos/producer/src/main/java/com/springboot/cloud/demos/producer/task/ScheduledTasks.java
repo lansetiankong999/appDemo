@@ -4,20 +4,24 @@ import com.springboot.cloud.demos.producer.events.BusSender;
 import com.springboot.cloud.demos.producer.events.RedisSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
+/**
+ * @author Jump
+ */
 @Component
 @EnableScheduling
 public class ScheduledTasks {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
+    @Resource
     private RedisSender redisSender;
 
-    @Autowired
+    @Resource
     private BusSender busSender;
 
     @Scheduled(fixedRate = 20000)

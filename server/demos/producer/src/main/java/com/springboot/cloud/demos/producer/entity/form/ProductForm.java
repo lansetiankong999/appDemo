@@ -9,6 +9,9 @@ import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @author Jump
+ */
 @EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data

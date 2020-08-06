@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.apache.commons.lang.RandomStringUtils.randomNumeric;
 
+/**
+ * @author Jump
+ */
 @RestController
 public class HelloController {
 
