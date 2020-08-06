@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * @author Jump
+ */
 @Slf4j
 @Component
 public class GateWayExceptionHandlerAdvice {
@@ -80,8 +83,6 @@ public class GateWayExceptionHandlerAdvice {
             result = handle((ResponseStatusException) throwable);
         } else if (throwable instanceof ConnectTimeoutException) {
             result = handle((ConnectTimeoutException) throwable);
-        } else if (throwable instanceof NotFoundException) {
-            result = handle((NotFoundException) throwable);
         } else if (throwable instanceof RuntimeException) {
             result = handle((RuntimeException) throwable);
         } else if (throwable instanceof Exception) {

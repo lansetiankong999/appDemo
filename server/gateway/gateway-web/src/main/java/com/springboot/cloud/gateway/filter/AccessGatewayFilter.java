@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.cloud.auth.client.service.IAuthService;
 import com.springboot.cloud.gateway.service.IPermissionService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,8 +17,12 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Resource;
+
 /**
  * 请求url权限校验
+ *
+ * @author Jump
  */
 @Configuration
 @ComponentScan(basePackages = "com.springboot.cloud.auth.client")
@@ -32,19 +35,19 @@ public class AccessGatewayFilter implements GlobalFilter {
     /**
      * 由authentication-client模块提供签权的feign客户端
      */
-    @Autowired
+    @Resource
     private IAuthService authService;
 
-    @Autowired
+    @Resource
     private IPermissionService permissionService;
 
     /**
      * 1.首先网关检查token是否有效，无效直接返回401，不调用签权服务
      * 2.调用签权服务器看是否对该请求有权限，有权限进入下一个filter，没有权限返回401
      *
-     * @param exchange
-     * @param chain
-     * @return
+     * @param exchange exchange
+     * @param chain    chain
+     * @return Mono<Void>
      */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -62,7 +65,7 @@ public class AccessGatewayFilter implements GlobalFilter {
         if (permissionService.permission(authentication, url, method)) {
             ServerHttpRequest.Builder builder = request.mutate();
             //TODO 转发的请求都加上服务间认证token
-            builder.header(X_CLIENT_TOKEN, "TODO zhoutaoo添加服务间简单认证");
+            builder.header(X_CLIENT_TOKEN, "TODO 添加服务间简单认证");
             //将jwt token中的用户信息传给服务
             builder.header(X_CLIENT_TOKEN_USER, getUserToken(authentication));
             return chain.filter(exchange.mutate().request(builder.build()).build());
@@ -73,8 +76,8 @@ public class AccessGatewayFilter implements GlobalFilter {
     /**
      * 提取jwt token中的数据，转为json
      *
-     * @param authentication
-     * @return
+     * @param authentication authentication
+     * @return String
      */
     private String getUserToken(String authentication) {
         String token = "{}";
@@ -90,7 +93,7 @@ public class AccessGatewayFilter implements GlobalFilter {
     /**
      * 网关拒绝，返回401
      *
-     * @param
+     * @param serverWebExchange serverWebExchange
      */
     private Mono<Void> unauthorized(ServerWebExchange serverWebExchange) {
         serverWebExchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);

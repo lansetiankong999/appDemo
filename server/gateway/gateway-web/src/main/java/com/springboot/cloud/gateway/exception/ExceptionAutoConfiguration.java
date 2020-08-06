@@ -21,6 +21,9 @@ import org.springframework.web.reactive.result.view.ViewResolver;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author Jump
+ */
 @Configuration
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 @ConditionalOnClass(WebFluxConfigurer.class)
@@ -28,26 +31,23 @@ import java.util.List;
 @EnableConfigurationProperties({ServerProperties.class, ResourceProperties.class})
 public class ExceptionAutoConfiguration {
 
-    private ServerProperties serverProperties;
+    private final ServerProperties serverProperties;
 
-    private ApplicationContext applicationContext;
+    private final ApplicationContext applicationContext;
 
-    private ResourceProperties resourceProperties;
+    private final ResourceProperties resourceProperties;
 
-    private List<ViewResolver> viewResolvers;
+    private final List<ViewResolver> viewResolvers;
 
-    private ServerCodecConfigurer serverCodecConfigurer;
+    private final ServerCodecConfigurer serverCodecConfigurer;
 
-    public ExceptionAutoConfiguration(ServerProperties serverProperties,
-                                      ResourceProperties resourceProperties,
+    public ExceptionAutoConfiguration(ServerProperties serverProperties, ResourceProperties resourceProperties,
                                       ObjectProvider<List<ViewResolver>> viewResolversProvider,
-                                      ServerCodecConfigurer serverCodecConfigurer,
-                                      ApplicationContext applicationContext) {
+                                      ServerCodecConfigurer serverCodecConfigurer, ApplicationContext applicationContext) {
         this.serverProperties = serverProperties;
         this.applicationContext = applicationContext;
         this.resourceProperties = resourceProperties;
-        this.viewResolvers = viewResolversProvider
-                .getIfAvailable(() -> Collections.emptyList());
+        this.viewResolvers = viewResolversProvider.getIfAvailable(Collections::emptyList);
         this.serverCodecConfigurer = serverCodecConfigurer;
     }
 

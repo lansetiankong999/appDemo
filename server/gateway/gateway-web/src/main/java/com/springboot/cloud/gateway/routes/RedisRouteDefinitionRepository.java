@@ -2,18 +2,22 @@ package com.springboot.cloud.gateway.routes;
 
 import com.springboot.cloud.gateway.service.impl.RouteService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Resource;
+
+/**
+ * @author Jump
+ */
 @Component
 @Slf4j
 public class RedisRouteDefinitionRepository implements RouteDefinitionRepository {
 
-    @Autowired
+    @Resource
     private RouteService routeService;
 
     @Override

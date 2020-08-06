@@ -11,6 +11,9 @@ import springfox.documentation.swagger.web.*;
 
 import java.util.Optional;
 
+/**
+ * @author Jump
+ */
 @RestController
 @RequestMapping("/swagger-resources")
 public class SwaggerHandler {
