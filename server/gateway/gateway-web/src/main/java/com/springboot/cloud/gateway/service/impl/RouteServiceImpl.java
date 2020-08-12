@@ -38,7 +38,7 @@ public class RouteServiceImpl implements IRouteService {
 
     private final Map<String, RouteDefinition> routeDefinitionMaps = new HashMap<>();
 
-    @PostConstruct
+    /*@PostConstruct*/
     private void loadRouteDefinition() {
         log.info("loadRouteDefinition, 开始初使化路由");
         System.out.println(stringRedisTemplate.opsForValue().get("gateway_routes::103"));
