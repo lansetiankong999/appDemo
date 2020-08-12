@@ -1,6 +1,6 @@
 package com.springboot.cloud.gateway.config;
 
-import com.springboot.cloud.gateway.service.impl.RouteService;
+import com.springboot.cloud.gateway.service.impl.RouteServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Primary;
@@ -23,7 +23,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
     public static final String API_URI = "/v2/api-docs";
 
     @Resource
-    private final RouteService routeService;
+    private final RouteServiceImpl routeService;
 
     @Override
     public List<SwaggerResource> get() {

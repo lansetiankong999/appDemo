@@ -1,6 +1,6 @@
 package com.springboot.cloud.gateway.routes;
 
-import com.springboot.cloud.gateway.service.impl.RouteService;
+import com.springboot.cloud.gateway.service.impl.RouteServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 public class RedisRouteDefinitionRepository implements RouteDefinitionRepository {
 
     @Resource
-    private RouteService routeService;
+    private RouteServiceImpl routeService;
 
     @Override
     public Flux<RouteDefinition> getRouteDefinitions() {

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -21,9 +22,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Jump
+ */
 @Service
 @Slf4j
-public class RouteService implements IRouteService {
+public class RouteServiceImpl implements IRouteService {
 
     private static final String GATEWAY_ROUTES = "gateway_routes::";
 
@@ -33,11 +37,12 @@ public class RouteService implements IRouteService {
     @CreateCache(name = GATEWAY_ROUTES, cacheType = CacheType.REMOTE)
     private Cache<String, RouteDefinition> gatewayRouteCache;
 
-    private Map<String, RouteDefinition> routeDefinitionMaps = new HashMap<>();
+    private final Map<String, RouteDefinition> routeDefinitionMaps = new HashMap<>();
 
     @PostConstruct
     private void loadRouteDefinition() {
         log.info("loadRouteDefinition, 开始初使化路由");
+        stringRedisTemplate.opsForValue().set(GATEWAY_ROUTES + "a", "hh");
         Set<String> gatewayKeys = stringRedisTemplate.keys(GATEWAY_ROUTES + "*");
         if (CollectionUtils.isEmpty(gatewayKeys)) {
             return;

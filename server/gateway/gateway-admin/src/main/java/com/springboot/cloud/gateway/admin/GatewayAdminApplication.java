@@ -14,7 +14,7 @@ import org.springframework.cloud.gateway.config.GatewayClassPathWarningAutoConfi
 @SpringBootApplication(exclude = GatewayClassPathWarningAutoConfiguration.class)
 @EnableDiscoveryClient
 @EnableCircuitBreaker
-@EnableMethodCache(basePackages = "com.springboot.cloud")
+@EnableMethodCache(basePackages = {"com.alicp.jetcache.autoconfigure", "com.springboot.cloud"})
 @EnableCreateCacheAnnotation
 public class GatewayAdminApplication {
     public static void main(String[] args) {

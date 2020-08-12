@@ -5,10 +5,12 @@ package com.springboot.cloud.gateway.service;
  */
 public interface IPermissionService {
     /**
-     * @param authentication
-     * @param method
-     * @param url
-     * @return
+     * 是否有权限
+     *
+     * @param authentication authentication
+     * @param method         method
+     * @param url            url
+     * @return boolean
      */
     boolean permission(String authentication, String url, String method);
 }
