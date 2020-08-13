@@ -7,7 +7,6 @@ import com.springboot.cloud.gateway.service.IPermissionService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author Jump
@@ -22,8 +21,7 @@ public class PermissionServiceImpl implements IPermissionService {
     private IAuthService authService;
 
     @Override
-    @Cached(name = "gateway_auth::", key = "#authentication+#method+#url",
-            cacheType = CacheType.LOCAL, expire = 10, timeUnit = TimeUnit.MINUTES, localLimit = 10000)
+    @Cached(name = "gateway_auth::", key = "#authentication+#method+#url", cacheType = CacheType.LOCAL, expire = 10, localLimit = 10000)
     public boolean permission(String authentication, String url, String method) {
         return authService.hasPermission(authentication, url, method);
     }
