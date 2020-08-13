@@ -11,7 +11,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -38,10 +37,8 @@ public class RouteServiceImpl implements IRouteService {
 
     private final Map<String, RouteDefinition> routeDefinitionMaps = new HashMap<>();
 
-    @PostConstruct
-    private void loadRouteDefinition() {
+    public void loadRouteDefinition() {
         log.info("loadRouteDefinition, 开始初使化路由");
-        System.out.println(stringRedisTemplate.opsForValue().get("gateway_routes::103"));
         Set<String> gatewayKeys = stringRedisTemplate.keys(GATEWAY_ROUTES + "*");
         if (CollectionUtils.isEmpty(gatewayKeys)) {
             return;

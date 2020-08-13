@@ -1,5 +1,6 @@
 package com.springboot.cloud.gateway;
 
+import com.springboot.cloud.gateway.service.impl.RouteServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -15,10 +16,10 @@ import javax.annotation.Resource;
 public class GatewayApplicationTests {
 
     @Resource
-    private StringRedisTemplate stringRedisTemplate;
+    private RouteServiceImpl routeService;
 
     @Test
     public void contextLoads() {
-        System.out.println(stringRedisTemplate.opsForValue().get("gateway_routes::103"));
+        routeService.loadRouteDefinition();
     }
 }
