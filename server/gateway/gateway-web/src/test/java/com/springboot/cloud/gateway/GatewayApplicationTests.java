@@ -15,11 +15,8 @@ import javax.annotation.Resource;
 @AutoConfigureMockMvc
 public class GatewayApplicationTests {
 
-    @Resource
-    private RouteServiceImpl routeService;
-
     @Test
     public void contextLoads() {
-        routeService.loadRouteDefinition();
+
     }
 }

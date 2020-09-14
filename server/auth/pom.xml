@@ -23,10 +23,11 @@
     </modules>
 
     <dependencies>
+        <!--2.5.0 已停止该依赖 使用spring security 5-->
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <version>2.5.0.RELEASE</version>
+            <version>2.4.1.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>

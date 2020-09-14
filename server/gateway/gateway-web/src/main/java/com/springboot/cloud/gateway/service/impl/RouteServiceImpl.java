@@ -38,8 +38,6 @@ public class RouteServiceImpl implements IRouteService {
 
     private final Map<String, RouteDefinition> routeDefinitionMaps = new HashMap<>();
 
-
-    @PostConstruct
     public void loadRouteDefinition() {
         log.info("loadRouteDefinition, 开始初使化路由");
         //stringRedisTemplate使用失败
