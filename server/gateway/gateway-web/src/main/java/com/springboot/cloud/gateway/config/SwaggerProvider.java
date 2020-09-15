@@ -23,7 +23,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
     public static final String API_URI = "/v2/api-docs";
 
     @Resource
-    private RouteServiceImpl routeService;
+    private final RouteServiceImpl routeService;
 
     @Override
     public List<SwaggerResource> get() {

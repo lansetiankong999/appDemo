@@ -85,7 +85,7 @@ springcloud-admin是以[vue-element-admin](http://panjiachen.github.io/vue-eleme
 ## 开发
 ```bash
 # 克隆项目
-git clone https://github.com/lansetiankong999/appDemo-admin.git
+git clone https://github.com/lansetiankong999/appDemo.git
 
 # 安装依赖
 npm install

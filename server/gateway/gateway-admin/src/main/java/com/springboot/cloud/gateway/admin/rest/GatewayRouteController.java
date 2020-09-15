@@ -9,9 +9,9 @@ import com.springboot.cloud.gateway.admin.entity.po.GatewayRoute;
 import com.springboot.cloud.gateway.admin.service.IGatewayRouteService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 /**
@@ -23,7 +23,7 @@ import javax.validation.Valid;
 @Slf4j
 public class GatewayRouteController {
 
-    @Autowired
+    @Resource
     private IGatewayRouteService gatewayRoutService;
 
     @ApiOperation(value = "新增网关路由", notes = "新增一个网关路由")

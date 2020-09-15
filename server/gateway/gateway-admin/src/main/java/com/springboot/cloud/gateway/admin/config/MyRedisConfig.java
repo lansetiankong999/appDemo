@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Jump
  */
-@Configuration
-@EnableCaching
+/*@Configuration
+@EnableCaching*/
 public class MyRedisConfig extends RedisConfig {
 }
