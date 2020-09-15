@@ -17,7 +17,7 @@
     </parent>
 
     <properties>
-        <admin-server.version>2.1.6</admin-server.version>
+        <admin-server.version>2.3.0</admin-server.version>
     </properties>
 
     <dependencies>
